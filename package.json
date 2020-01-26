@@ -1,0 +1,24 @@
+{
+  "name": "burger-licious",
+  "version": "1.0.0",
+  "description": "json file for burger-licious",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MHavrilak/Burger-licious.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MHavrilak/Burger-licious/issues"
+  },
+  "homepage": "https://github.com/MHavrilak/Burger-licious#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.18.1"
+  }
+}
