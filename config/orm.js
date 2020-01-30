@@ -8,29 +8,27 @@ var orm = {
       console.log(result);
     });
   },
-  selectAll: function(tableInput, colToSearch, valOfCol) {
-    var queryString = "SELECT * FROM ?? WHERE ?? = ?";
+  selectAll: function(tableInput, cb) {
+    var queryString = "SELECT * FROM ??";
 
     console.log(queryString);
 
-    connection.query(queryString, [tableInput, colToSearch, valOfCol], function(err, result) {
+    connection.query(queryString, [tableInput], function(err, result) {
       if (err) throw err;
-      console.log(result);
+      cb(result);
     });
   },
-  insertOne: function(whatToSelect, tableOne, onTableOneCol, onTableTwoCol) {
-    var queryString = "SELECT ?? FROM ?? AS tOne";
-    queryString += " LEFT JOIN ?? AS tTwo";
-    queryString += " ON tOne.?? = tTwo.??";
+  insertOne: function(col, name, cb) {
+    var queryString = "INSERT INTO burgers (burger_name) VALUES (?);";
+   
+    console.log(col, name);
 
-    console.log(queryString);
-
-    connection.query(queryString, [whatToSelect, tableOne, tableTwo, onTableOneCol, onTableTwoCol], function(
+    connection.query(queryString, name, function(
       err,
       result
     ) {
         if (err) throw err;
-      console.log(result);
+      cb(result);
     });
   }
 };

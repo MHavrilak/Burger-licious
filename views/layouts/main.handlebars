@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+		<title>Burgerlicious!!</title>
+		<script src="https://code.jquery.com/jquery.js"></script>
+		
+	</head>
+	<body>
+		{{{ body }}}
+
+        <script>
+            $(function() {
+               $("#create").on("click", function() {
+                   var newBurger = $("#burger-type").val()
+                   $.ajax({
+                       url: "/api/burgers",
+                       method:"POST",
+                       data:{"name":newBurger}
+                       }).then(function() {
+                           window.location.reload();
+                       })
+               }) 
+               $(".eatit").on("click", function() {
+                   var id = this.id;
+                   $.ajax({
+                       url: "/api/burgers/" + id,
+                       method:"PUT",
+                       data:{devoured: true}
+                       }).then(function() {
+                           window.location.reload();
+                       })
+               }) 
+            })
+        </script>
+	</body>
+</html>
+
+

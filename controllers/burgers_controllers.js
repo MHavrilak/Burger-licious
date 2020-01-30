@@ -1,9 +1,10 @@
 var express = require('express');
-var burgers = require('burger.js');
+var burgers = require('../models/burger.js');
 var router = express.Router();
 
+
 router.get("/", function(req, res) {
-    cat.all(function(data) {
+    burgers.all(function(data) {
       var order = {
         burgers: data
       };
@@ -13,7 +14,7 @@ router.get("/", function(req, res) {
   });
 
   router.post("/api/burgers", function(req, res) {
-    cat.create(["burger_name", "devoured"], [req.body.name, req.body.sleepy], function(result) {
+    burgers.create(req.body.name, function(result) {
      
       res.json({ id: result.insertId });
     });
@@ -24,7 +25,7 @@ router.get("/", function(req, res) {
   
     console.log("condition", condition);
   
-    burger.update(
+    burgers.update(
       {
         devoured: req.body.devoured
       },

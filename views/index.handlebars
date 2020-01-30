@@ -1,0 +1,30 @@
+<img id="hello-burger" src="/public/assets/img/burger.png">
+
+<h1>Burgerlicious!!</h1>
+
+<div class="form-group">
+    <label for="bg">Type of Burger</label>
+    <input type="text" id="burger-type" name="name">
+    <button type="buttin" id="create">Order Burger</button>
+</div>
+
+<div class="ordered">
+    {{#each burgers}}
+    {{#unless devoured}}
+    <div class="burger">
+        <p>{{burger_name}}</p>
+        <button type="button" class="eatIt" id="{{id}}">Eat Da Burger!</button>
+    </div>
+    {{/unless}}
+    {{/each}}
+</div>
+
+<div class="eaten">
+    {{#each burgers}}
+    {{#if devoured }}
+    <div class="burger">
+        <p>{{burger_name}}</p>
+    </div>
+    {{/if}}
+    {{/each}}
+</div>
